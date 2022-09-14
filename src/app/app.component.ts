@@ -40,12 +40,7 @@ const INITIAL_CONFIG: SingleTestConfig = {
             ></app-manual-test>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm">First column</div>
-          <div class="col-sm">Second column</div>
-          <div class="col-sm">Third column</div>
-        </div>
-        <div class="row">First column</div>
+        <app-graph></app-graph>
       </div>
     </div>
   </div>`,
