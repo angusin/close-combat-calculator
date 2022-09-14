@@ -7,6 +7,7 @@ export interface SingleTestConfig {
   inCover: boolean;
 }
 export interface RollResult {
+  testId: number;
   averageWounds: number;
   chartData: SingleValue[];
 }
