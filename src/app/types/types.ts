@@ -14,5 +14,5 @@ export interface RollResult {
 
 export interface SingleValue {
   number: number;
-  value: number;
+  percentage: number;
 }

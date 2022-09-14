@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { action, observable } from "mobx";
-import { SingleTestConfig, RollResult } from "../types/types";
+import { SingleTestConfig, RollResult, SingleValue } from "../types/types";
 
 const NUMBER_OF_ROLLS: number = 1000;
 const INITIAL_CONFIG: SingleTestConfig = {
@@ -8,8 +8,8 @@ const INITIAL_CONFIG: SingleTestConfig = {
   attackDiceType: 10,
   attackDiceNumber: 0,
   defenseArmor: 6,
-  aiming: true,
-  inCover: true,
+  aiming: false,
+  inCover: false,
 };
 
 @Injectable({
@@ -84,8 +84,25 @@ export class DataStoreService {
   constructor() {}
 
   calculateSuccessPercentage(config: SingleTestConfig) {
-    console.log(config);
-    const avgWounds: number = config.attackDiceNumber + +config.attackDiceType;
+    const singleValuesPerc: SingleValue[] = [];
+    let avgWounds: number = 0;
+    let totalSuccesses: number = 0;
+
+    for (let i = 0; i < NUMBER_OF_ROLLS; i++) {
+      let currentRollResult: number = 0;
+      let successesInOneAttack: number = 0;
+      for (let j = 0; j < config.attackDiceNumber; j++) {
+        currentRollResult =
+          Math.floor(Math.random() * config.attackDiceType) + 1;
+        if (currentRollResult >= config.defenseArmor) {
+          successesInOneAttack++;
+        }
+      }
+      totalSuccesses += successesInOneAttack;
+    }
+
+    avgWounds = totalSuccesses / NUMBER_OF_ROLLS;
+
     this.setResult({
       testId: config.testId,
       averageWounds: avgWounds,
@@ -93,7 +110,7 @@ export class DataStoreService {
     });
   }
 
-  calculateAverageWounds(): number {
+  getAverageWounds(): number {
     return 0;
   }
 }
