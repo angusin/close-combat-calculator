@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { action, observable } from "mobx";
+import { action, makeAutoObservable, observable } from "mobx";
 import { SingleTestConfig, RollResult, SingleValue } from "../types/types";
 
-const NUMBER_OF_ROLLS: number = 1000;
+const NUMBER_OF_ROLLS: number = 100000;
 const INITIAL_CONFIG: SingleTestConfig = {
   testId: 0,
   attackDiceType: 10,
@@ -65,7 +65,6 @@ export class DataStoreService {
   }
 
   @action setResult(result: RollResult) {
-    console.log(result);
     switch (result.testId) {
       case 1:
         this.resultTest1 = result;
@@ -81,11 +80,15 @@ export class DataStoreService {
     }
   }
 
-  constructor() {}
+  constructor() {
+    // For mobx to autodetect the changes in the results
+    makeAutoObservable(this);
+  }
 
   calculateSuccessPercentage(config: SingleTestConfig) {
     const singleValuesPerc: SingleValue[] = [];
     let avgWounds: number = 0;
+    let avgWoundsTotal: number[] = [];
     let totalSuccesses: number = 0;
 
     for (let i = 0; i < NUMBER_OF_ROLLS; i++) {
@@ -99,18 +102,25 @@ export class DataStoreService {
         }
       }
       totalSuccesses += successesInOneAttack;
+      avgWoundsTotal.push(successesInOneAttack);
     }
 
     avgWounds = totalSuccesses / NUMBER_OF_ROLLS;
+    const onlySingleValues: number[] = [...new Set(avgWoundsTotal)].sort();
+    onlySingleValues.forEach((singleValue) =>
+      singleValuesPerc.push({
+        number: singleValue,
+        percentage:
+          (avgWoundsTotal.filter((wound) => wound === singleValue).length /
+            NUMBER_OF_ROLLS) *
+          100,
+      })
+    );
 
     this.setResult({
       testId: config.testId,
       averageWounds: avgWounds,
-      chartData: [],
+      chartData: singleValuesPerc,
     });
-  }
-
-  getAverageWounds(): number {
-    return 0;
   }
 }
