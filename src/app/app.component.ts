@@ -5,12 +5,12 @@ import { SingleTestConfig } from "./types/types";
 
 @Component({
   template: ` <div class="page-wrapper with-navbar">
-    <!-- Navbar (immediate child of the page wrapper) -->
+    <!-- Navbar -->
     <app-header></app-header>
 
     <!-- Content wrapper -->
     <div class="content-wrapper" mobxAutorun>
-      <div class="container-fluid">
+      <div class="container-fluid mt-15">
         <div class="row">
           <div class="col-sm">
             <app-manual-test
