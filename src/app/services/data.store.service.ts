@@ -91,6 +91,14 @@ export class DataStoreService {
     let avgWoundsTotal: number[] = [];
     let totalSuccesses: number = 0;
 
+    if (config.aiming) {
+      config.attackDiceType = config.attackDiceType + 2;
+    }
+
+    if (config.inCover) {
+      config.attackDiceType = config.attackDiceType - 2;
+    }
+
     for (let i = 0; i < NUMBER_OF_ROLLS; i++) {
       let currentRollResult: number = 0;
       let successesInOneAttack: number = 0;
