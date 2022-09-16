@@ -341,7 +341,7 @@ export class GraphComponent implements OnInit {
       this.charts.forEach((c) => {
         c.update();
       });
-    }, 300);
+    }, 100);
   }
 
   killInTurns(wounds: number): number {

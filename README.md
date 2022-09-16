@@ -1,27 +1,54 @@
-# CloseCombatCalculators
+# Close Combat - Stats Calculator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
+This app helps us creating better stats for the units in the Close Combat board game.
+By changing the Dice Type, the Dice Number and the Defense (armor) of the objective, we can better estimate the average wound that an attack will cause, changing the stats of the attacker for a better leveling between all of them.
 
-## Development server
+## Demo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+You can view a demo here: http://close-combat-calculator.modelbrush.com
 
-## Code scaffolding
+## Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Client:** Angular 14 (https://angular.io/)
 
-## Build
+**Styles:** Halfmoon (https://www.gethalfmoon.com/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**Visualization:** Chart.js (https://www.chartjs.org/) and ng2-charts (https://valor-software.com/ng2-charts/)
 
-## Running unit tests
+**Toasts:** Angular Toastr (https://ngx-toastr.vercel.app/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Screenshots
 
-## Running end-to-end tests
+You can tweak with 3 different attacks at the same time, changing all values. The chats will update at real time:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
-## Further help
+In the bottom part you can see a big chart with all the 3 attacks merged, for a better visualization and comparison between them:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone git@github.com:angusin/close-combat-calculator.git
+```
+
+Go to the project directory
+
+```bash
+  cd close-combat-calculator
+```
+
+Install the dependencies
+
+```bash
+  npm install
+```
+
+Start the app
+
+```bash
+  ng serve -o
+```

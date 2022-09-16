@@ -130,7 +130,7 @@ export class ManualTestComponent implements OnInit, OnDestroy {
         });
         setTimeout(() => {
           this.dataStoreService.calculateSuccessPercentage(this.config);
-        }, 300);
+        }, 100);
       })
     );
   }
