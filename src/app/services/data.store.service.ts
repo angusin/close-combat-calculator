@@ -24,12 +24,12 @@ export class DataStoreService {
   @observable configTest2: SingleTestConfig = {
     ...INITIAL_CONFIG,
     testId: 2,
-    attackDiceNumber: 3,
+    attackDiceNumber: 4,
   };
   @observable configTest3: SingleTestConfig = {
     ...INITIAL_CONFIG,
     testId: 3,
-    attackDiceNumber: 4,
+    attackDiceNumber: 6,
   };
 
   @observable resultTest1: RollResult = {
