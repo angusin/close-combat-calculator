@@ -1,3 +1,12 @@
+<p align="center">
+<a href=""><img src="https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white" /></a>
+<a href=""><img src="https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white" /></a>
+<a href=""><img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" /></a>
+<a href=""><img src="https://img.shields.io/github/package-json/v/angusin/close-combat-calculator?style=for-the-badge" /></a>
+<a href=""><img src="https://img.shields.io/github/last-commit/angusin/close-combat-calculator/develop?style=for-the-badge" /></a>
+<a href=""><img src="https://img.shields.io/github/repo-size/angusin/close-combat-calculator?style=for-the-badge" /></a>
+</p>
+
 # Close Combat - Stats Calculator
 
 This app helps us creating better stats for the units in the Close Combat board game.
