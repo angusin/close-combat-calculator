@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   OnInit,
   QueryList,
@@ -7,7 +6,7 @@ import {
   ViewChildren,
 } from "@angular/core";
 import { ChartConfiguration, ChartData, ChartType } from "chart.js";
-import { autorun, computed, Lambda, observe, reaction } from "mobx";
+import { computed, Lambda, observe } from "mobx";
 import { BaseChartDirective } from "ng2-charts";
 import { DataStoreService } from "src/app/services/data.store.service";
 import { RollResult } from "src/app/types/types";
@@ -15,9 +14,9 @@ import { RollResult } from "src/app/types/types";
 @Component({
   template: `
     <div class="row" mobxAutorun>
+      <!-- ATTACK 1 CHART -->
       <div class="col-md-4">
         <div class="card p-0">
-          <!-- Content -->
           <div class="content">
             <canvas
               baseChart
@@ -27,7 +26,6 @@ import { RollResult } from "src/app/types/types";
             >
             </canvas>
           </div>
-          <!-- Card footer -->
           <div
             class="px-card py-10 bg-light-lm bg-very-dark-dm rounded-bottom d-flex justify-content-between"
           >
@@ -43,9 +41,10 @@ import { RollResult } from "src/app/types/types";
           </div>
         </div>
       </div>
+
+      <!-- ATTACK 2 CHART -->
       <div class="col-md-4">
         <div class="card p-0">
-          <!-- Content -->
           <div class="content">
             <canvas
               baseChart
@@ -55,7 +54,6 @@ import { RollResult } from "src/app/types/types";
             >
             </canvas>
           </div>
-          <!-- Card footer -->
           <div
             class="px-card py-10 bg-light-lm bg-very-dark-dm rounded-bottom d-flex justify-content-between"
           >
@@ -71,9 +69,10 @@ import { RollResult } from "src/app/types/types";
           </div>
         </div>
       </div>
+
+      <!-- ATTACK 3 CHART -->
       <div class="col-md-4">
         <div class="card p-0">
-          <!-- Content -->
           <div class="content">
             <canvas
               baseChart
@@ -83,7 +82,6 @@ import { RollResult } from "src/app/types/types";
             >
             </canvas>
           </div>
-          <!-- Card footer -->
           <div
             class="px-card py-10 bg-light-lm bg-very-dark-dm rounded-bottom d-flex justify-content-between"
           >
@@ -101,6 +99,7 @@ import { RollResult } from "src/app/types/types";
       </div>
     </div>
 
+    <!-- BIG MERGED CHART -->
     <div class="row">
       <div class="col-sm">
         <div class="card">
