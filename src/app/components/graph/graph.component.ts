@@ -124,8 +124,7 @@ export class GraphComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective;
   @ViewChildren(BaseChartDirective) charts: QueryList<BaseChartDirective>;
 
-  private currentAnnotationChangeDisposer: Lambda;
-  private selectedAssetIdChangeDisposer: Lambda;
+  private resultsChangeDisposer: Lambda;
 
   public lineChartType: ChartType = "line";
 
@@ -304,17 +303,9 @@ export class GraphComponent implements OnInit {
   ngOnInit(): void {
     this.updateChart();
 
-    autorun(() => {
-      console.log("autorun: ");
+    this.resultsChangeDisposer = observe(this.dataStoreService, (_) => {
       this.updateChart();
     });
-
-    this.currentAnnotationChangeDisposer = observe(
-      this.dataStoreService,
-      (_) => {
-        this.updateChart();
-      }
-    );
   }
 
   updateChart() {
@@ -349,11 +340,8 @@ export class GraphComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    if (this.currentAnnotationChangeDisposer) {
-      this.currentAnnotationChangeDisposer();
-    }
-    if (this.selectedAssetIdChangeDisposer) {
-      this.selectedAssetIdChangeDisposer();
+    if (this.resultsChangeDisposer) {
+      this.resultsChangeDisposer();
     }
   }
 }
