@@ -21,11 +21,11 @@ You can view a demo here: http://close-combat-calculator.modelbrush.com
 
 You can tweak with 3 different attacks at the same time, changing all values. The chats will update at real time:
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Screenshot 2022-09-16 at 11 30 34](https://user-images.githubusercontent.com/8282153/190616161-7bb90fad-56e8-4ba8-867f-47703d74b963.png)
 
 In the bottom part you can see a big chart with all the 3 attacks merged, for a better visualization and comparison between them:
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Screenshot 2022-09-16 at 11 29 41](https://user-images.githubusercontent.com/8282153/190616187-7075e06d-7400-4873-8434-872006437b05.png)
 
 ## Run Locally
 
