@@ -15,19 +15,19 @@ import { SingleTestConfig } from "./types/types";
           <div class="col-sm">
             <app-manual-test
               [config]="configTest1"
-              [color]="'rgba(248, 204, 88, 1)'"
-            ></app-manual-test>
-          </div>
-          <div class="col-sm">
-            <app-manual-test
-              [config]="configTest2"
               [color]="'rgba(240, 99, 122, 1)'"
             ></app-manual-test>
           </div>
           <div class="col-sm">
             <app-manual-test
-              [config]="configTest3"
+              [config]="configTest2"
               [color]="'rgba(71, 146, 228, 1)'"
+            ></app-manual-test>
+          </div>
+          <div class="col-sm">
+            <app-manual-test
+              [config]="configTest3"
+              [color]="'rgba(248, 204, 88, 1)'"
             ></app-manual-test>
           </div>
         </div>
